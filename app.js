@@ -8,7 +8,7 @@ MyLunchCheckerController.$inject = [$scope];
 
 fucntion MyLunchCheckerController ($scope){
 
-  $scope.checkLunch = function (value) {
+  $scope.checkLunch = function () {
     $scope.count = 0;
     //if (!value)
     if ( $scope.dishList == undefined || $scope.dishList==""){
@@ -24,9 +24,9 @@ fucntion MyLunchCheckerController ($scope){
     }
 
     if ($scope.count<=3){
-      $scope.message = 'Enjoy';
+      $scope.message = "Enjoy";
     } else {
-      $scope.message = 'Too much';
+      $scope.message = "Too much";
     }
   };
 });

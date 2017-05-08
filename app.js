@@ -1,21 +1,35 @@
 (function () {
 'use strict';
 
-angular.module('MyLunchChecker', [])
+angular.module('MyLunchChecker', []);
 //.controller('myLunchCheckerController', myLunchCheckerController);
-.controller('MyLunchCheckerController', function ($scope, $filter, $injection) {
+.controller('MyLunchCheckerController', MyLunchCheckerController);
+MyLunchCheckerController.$inject = [$scope];
 
-  $scope.list = [];
-  $scope.message="Lets check how much foodf you are eating!"
-  $scope.checkLunch = function () {
-// fazer o parser e incrementar
+fucntion MyLunchCheckerController ($scope){
+
+  $scope.checkLunch = function (value) {
+    $scope.count = 0;
+    //if (!value)
+    if ( $scope.dishList == undefined || $scope.dishList==""){
+      $scope.message = "Please enter data first";
+      return;
+    }
+
+    var list = value.split(',');
+
+    for (var i = 0; i<list.length; i++){
+      if(list[i].trim() != "")
+        $scope.count++;
+    }
+
+    if ($scope.count<=3){
+      $scope.message = 'Enjoy';
+    } else {
+      $scope.message = 'Too much';
+    }
   };
 });
-
-  $scope.displayMessage = function () {
-    var message =  "Lets check how much foodf you are eating!"
-    //$scope.message = "Lets check how much foodf you are eating!"
-    $scope.
-  };
-
 })();
+
+//})();

@@ -15,9 +15,9 @@
    <div class="container">
      <h1>Lunch Checker</h1>
          <div ng-controller="MyLunchCheckerController" class="form-group">
-             <input id="lunch-menu" type="text" ng-model=list
+             <input id="lunch-menu" type="text" ng-model="list"
              ng-key="displayMessage();"
-             placeholder="list comma separated dishes you usually have for lunch"
+             ng-init="list comma separated dishes you usually have for lunch"
              class="form-control">
          </div>
          <div class="form-group">

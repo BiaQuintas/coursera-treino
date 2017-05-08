@@ -4,6 +4,7 @@
 angular.module('MyLunchChecker', []);
 
 .controller('MyLunchCheckerController', MyLunchCheckerController);
+
 MyLunchCheckerController.$inject = [$scope];
 
 fucntion MyLunchCheckController ($scope){
@@ -11,20 +12,19 @@ fucntion MyLunchCheckController ($scope){
   $scope.message = "";
   $scope.color = "black";
 
-
   $scope.checkLunch = function () {
     $scope.count = 0;
-    //if (!value)
+    //if (!$scope.dishList)
     if ( $scope.dishList == undefined || $scope.dishList==""){
         $scope.message = "Please enter data first";
         $scope.color = "red";
-      return;
+        return;
     }
 
-    var listDishes = value.split(',');
+    var listDishes = $scope.dishList.split(',');
 
-    for (var i = 0; i<list.length; i++){
-      if(list[i].trim() != "")
+    for (var i = 0; i<listDishes.length; i++){
+      if(listDishes[i].trim() != "")
         $scope.count++;
     }
 

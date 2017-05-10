@@ -1,13 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('MyLunchChecker', [])
-.controller('MyLunchCheckController', MyLunchCheckController);
+angular.module('LunchChecker', [])
+.controller('LunchCheckController', LunchCheckController);
 
-MyLunchCheckController.$inject = ['$scope'];
+LunchCheckController.$inject = ['$scope'];
 
 
-fucntion MyLunchCheckController ($scope){
+fucntion LunchCheckController ($scope){
   $scope.dishList = "";
   $scope.message = "";
   $scope.color = "black";
@@ -29,10 +29,10 @@ fucntion MyLunchCheckController ($scope){
     }
 
     if (count<=3){
-      $scope.message = "Enjoy";
+      $scope.message = "Enjoy!";
       $scope.color = "green";
     } else {
-      $scope.message = "Too much";
+      $scope.message = "Too much!";
       $scope.color = "red";
     }
   };

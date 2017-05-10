@@ -1,11 +1,11 @@
 (function () {
 'use strict';
 
-angular.module('MyLunchChecker', []);
+angular.module('MyLunchChecker', [])
+.controller('MyLunchCheckController', MyLunchCheckController);
 
-.controller('MyLunchCheckerController', MyLunchCheckerController);
+MyLunchCheckController.$inject = ['$scope'];
 
-MyLunchCheckerController.$inject = [$scope];
 
 fucntion MyLunchCheckController ($scope){
   $scope.dishList = "";
@@ -13,22 +13,22 @@ fucntion MyLunchCheckController ($scope){
   $scope.color = "black";
 
   $scope.checkLunch = function () {
-    $scope.count = 0;
     //if (!$scope.dishList)
     if ( $scope.dishList == undefined || $scope.dishList==""){
         $scope.message = "Please enter data first";
         $scope.color = "red";
         return;
     }
-
-    var listDishes = $scope.dishList.split(',');
+    var count = 0;
+    var listDishes = $scope.dishList.split(",");
 
     for (var i = 0; i<listDishes.length; i++){
-      if(listDishes[i].trim() != "")
-        $scope.count++;
+      if(listDishes[i].trim() != ""){
+        count++;
+      }
     }
 
-    if ($scope.count<=3){
+    if (count<=3){
       $scope.message = "Enjoy";
       $scope.color = "green";
     } else {
@@ -38,5 +38,3 @@ fucntion MyLunchCheckController ($scope){
   };
 }
 })();
-
-//})();

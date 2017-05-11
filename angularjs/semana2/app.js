@@ -19,11 +19,11 @@ fucntion LunchCheckController ($scope){
         $scope.color = "red";
         return;
     }
-        var listDishes = $scope.dishList.split(",");
-
     var count = 0;
-    for (count = 0; count<listDishes.length; count++){
-      if(listDishes[count].trim() != ""){
+    var listDishes = $scope.dishList.split(",");
+
+    for (var i = 0; i<listDishes.length; i++){
+      if(listDishes[i].trim() != ""){
         count++;
       }
     }
